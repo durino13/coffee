@@ -1,0 +1,13 @@
+{
+    "name": "marusiju/kava",
+    "description": "Coffee table project",
+    "require": {
+        "twig/twig": "^1.21"
+    },
+    "authors": [
+        {
+            "name": "Juraj Marušiak",
+            "email": "juraj.marusiak@gmail.com"
+        }
+    ]
+}

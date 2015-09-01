@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 600px;
+}
+
+.table-square-0 {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	background: grey;
+	border: 1px solid white;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.table-square-1 {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	background: red;
+	border: 1px solid white;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.result {
+	padding-top: 1em;
+	font-weight: bold;
+}
+
+.index {
+	font-size: 9px;
+}
