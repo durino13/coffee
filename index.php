@@ -1,19 +1,11 @@
-<?
+<?php
 
 require_once 'vendor/autoload.php';
 require_once 'controller/Controller.php';
 
-function pr($label, $data)
-{
-	if (true)
-	{
-		echo "<b> $label </b>";
-	    echo "<pre>";
-	    print_r($data); // or var_dump($data);
-	    echo "</pre>";		
-	}
-
-}
-
+/*
+ * For the purpose of this application, the controller is not necessary, but 
+ * I prefer to have it anyway ..
+ */
 $controller = new Controller();
 $controller->index();
