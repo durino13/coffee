@@ -19,7 +19,7 @@
     border: 1px solid white;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
 }
 
 .table-square-1 {
@@ -33,7 +33,7 @@
     border: 1px solid white;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -59,4 +59,68 @@
 
 .index {
     font-size: 9px;
+}
+
+.group-0 {
+    background:red;
+}
+
+.group-1 {
+    background:green;
+}
+
+.group-2 {
+    background:blue;
+}
+
+.group-3 {
+    background:aqua;
+}
+
+.group-4 {
+    background:black;
+}
+
+.group-5 {
+    background:chocolate;
+}
+
+.group-6 {
+    background:darkmagenta;
+}
+
+.group-7 {
+    background:fuchsia;
+}
+
+.group-8 {
+    background:gold;
+}
+
+.group-9 {
+    background:hotpink;
+}
+
+.group-10 {
+    background:indigo;
+}
+
+.group-11 {
+    background:khaki;
+}
+
+.group-12 {
+    background:lightgray;
+}
+
+.group-13 {
+    background:midnightblue;
+}
+
+.group-14 {
+    background:navy;
+}
+
+.group-15 {
+    background:red;
 }

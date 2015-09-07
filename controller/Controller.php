@@ -11,7 +11,7 @@ class Controller
         
         $table = new Table();
         $squares = $table->getSquares();
-                        
+                                
         $poolCount = 0;
         $biggestPool = 0;
         $poolSize = 0;
