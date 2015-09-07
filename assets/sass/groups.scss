@@ -1,0 +1,7 @@
+$colors-list: #3498DB #1ABC9C #99ABD5 #3A6F81 #7D3DB7 #ADC608 #F87117 #02CEC2 #2D3E50 #C1392B #27AE61 #F1C40F #9C59B8 #3598DC #1BBC9D #2FCC71 #FF640A #FFF70A #74FF0A #0AFFC6 #0AA5FF #0A12FF #950AFF #FF0AD6 #FF0A43;
+@each $current-color in $colors-list {
+    $i: index($colors-list, $current-color)-1;
+    .group-#{$i} { 
+        background: $current-color;
+    }
+}
