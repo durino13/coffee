@@ -4,7 +4,7 @@ class Table
 {
 
     protected $tableSquareCount;
-    protected $tableDataArray;
+    protected $squaresArray;
 
     public function __construct()
     {
@@ -17,19 +17,39 @@ class Table
      */
     private function pourCoffee()
     {
-        for ($i = 0; $i <= $this->tableSquareCount; $i++)
+
+        $testValues = [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1,
+            1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1,
+            0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1,
+            0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0,
+            1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+            1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0,
+            1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0,
+            1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0,
+            0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+            0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0,
+            1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1,
+            0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1,
+            1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+            0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1,
+            0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0,
+            1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1,
+            1, 1, 0, 1, 1, 1, 1, 1, 1];
+        
+        for ($i = 0; $i < sizeof($testValues); $i++)
         {
-            $this->tableDataArray[$i] = rand(0, 1);
+            $this->squaresArray[$i] = new TableSquare($i, $testValues[$i]);
+            // $this->squaresArray[$i] = new TableSquare($i, rand(0, 1));
         }
-        // $this->tableDataArray = [1,1,0,1,0,1,1,0,0,1,0,1,1,0,0,1,1,1,1,0,0,0,1,1,0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0,1,0,0,1,1,1,1,0,1,1,1,0,1,1,0,0,1,0,0,1,1,0,1,1,0,0,1,1,1,1,0,1,0,0,0,0,0,0,1,1,1,0,1,1,1,0,0,1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,1,0,1,1,0,1,0,1,1,1,0,0,1,0,1,1,1,0,0,1,0,0,1,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,1,0,1,1,1,0,1,1,0,0,1,0,0,1,1,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1,1,0,1,1,0,0,0,1,0,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,1,0,0,1,1,0,0,1,1,0,1,0,0,0,1,0,0,0,1,1,0,0,1,1,1,0,0,0,1,1,0,1,0,0,1,0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,1,0,1,1,0,1,1,1,0,0,0,0,1,0,0,1,1,0,0,1,0,1,1,0,1,0,1,0,1,1,0,1,1,0,1,0,1,1,0,0,1,0,0,0,0,1,0,1,1,1,0,0,0,0,1,0,1,0,0,1,0,0,1,0,1,0,1,1,0,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,1,1,0,0,1,0,1,1,1,0,1,1,1,1,1,1];
     }
 
     /**
      * Create the table
      */
-    public function getData()
+    public function getSquares()
     {
-        return $this->tableDataArray;
+        return $this->squaresArray;
     }
 
     /**
@@ -39,7 +59,7 @@ class Table
     {
         foreach ($pool as $poolIndex)
         {
-            $this->tableDataArray[$poolIndex] = 0;
+            $this->squaresArray[$poolIndex] = new TableSquare($poolIndex, 0);
         }
     }
 
@@ -55,7 +75,7 @@ class Table
         $squaresToScan = array();
 
         // Rescan all the neighbour squares next to this scanned square and store the result in squaresToScan
-        $squaresToScan = $this->getNeighbourCoffeeSquaresIndexes($index);
+        $squaresToScan = $this->getNeighbours($index);
 
         // add index of the founded square into squaresScanned
         array_push($squaresScanned, $index);
@@ -71,7 +91,7 @@ class Table
             {
 
                 // for every coffee square get the index of another neighbour squares 
-                $ns = $this->getNeighbourCoffeeSquaresIndexes($squareIndex);
+                $ns = $this->getNeighbours($squareIndex);
 
                 // add the neighbours to scan to the list of the squarestoscan
                 $temp = array_unique(array_merge($temp, $ns));
@@ -86,27 +106,32 @@ class Table
         return $squaresScanned;
     }
 
-    /**
-     * This function will count coffee squares next to a square with a specific index
+    public function getSquareAtIndex($index)
+    {
+        return $this->squaresArray[$index];
+    }
+
+    /*
+     * This function will return an array of Squere objects next to this square.
      */
-    public function getNeighbourCoffeeSquaresIndexes($index)
+
+    public function getNeighbours($index)
     {
         $offsets = $this->getOffsets($index);
-        $indexesFound = array();
+        $squaresFound = array();
 
         foreach ($offsets as $offset)
         {
-
-            if (array_key_exists($index + $offset, $this->tableDataArray))
+            if (array_key_exists($index + $offset, $this->getSquares()))
             {
-                if ($this->tableDataArray[$index + $offset] === 1)
+                if ($this->getSquareAtIndex($index + $offset)->getValue() === 1)
                 {
-                    array_push($indexesFound, $index + $offset);
+                    array_push($squaresFound, $index + $offset);
                 }
             }
         }
 
-        return $indexesFound;
+        return $squaresFound;
     }
 
     /**
@@ -133,11 +158,6 @@ class Table
         {
             return $allOffsets;
         }
-    }
-
-    public function getValueAtIndex($index)
-    {
-        return $this->tableDataArray[$index];
     }
 
 }
