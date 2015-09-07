@@ -22,6 +22,12 @@ class Controller
             if ($table->getSquareAtIndex($i)->getValue() === 1)
             {
                 $extractedPool = $table->extractPoolAtIndex($i);
+                
+                foreach ($extractedPool as $index)
+                {
+                    $square = $table->getSquareAtIndex($index);
+                    $square->setPoolMembership($poolCount);
+                }
                 // After we extract the pool out of the table, we need to clean 
                 // the table on the place, from where the pool has been 
                 // extracted ..
@@ -33,7 +39,7 @@ class Controller
             if ($poolSize > $biggestPool)
                 $biggestPool = $poolSize;
         }
-        
+                                
         // Draw the table here .. 
         $loader = new Twig_Loader_Filesystem(__DIR__ . '/../view/');
         $twig = new Twig_Environment($loader);

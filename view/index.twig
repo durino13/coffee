@@ -7,18 +7,42 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="assets/js/main.js"></script>
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body>
 
-		<div class="flex-container">
-			{% for square in squares %}
-		        <div class="table-square-{{square.getValue()}}"></div>
-	        {% endfor %}
+        <div class="flex-container">
+            {% for square in squares %}
+                {% if (square.getPoolMembership() is null) %}
+                    <div class="table-square-{{square.getValue()}}"></div>
+                {% else %}
+                    <div class="table-square-{{square.getValue()}} group-{{square.getPoolMembership()}}"></div>
+                {% endif %}
+            {% endfor %}
         </div>
 
         <div class="result">Počet kaluží: {{ poolCount }}</div>
         <div class="result">Najväčšia kaluž: {{ biggestPool }} </div>
+
+        <script>
+
+            function highlightAllOnMouseover(className) {
+                $(className).mouseover(function () {
+                    $(className).toggleClass("table-square-1-hover");
+                    $(className).toggleClass("table-square-1");
+                }).mouseleave(function () {
+                    $(className).toggleClass("table-square-1");
+                    $(className).toggleClass("table-square-1-hover");
+                });
+            }
+            
+            {% for i in 0..poolCount %}
+                highlightAllOnMouseover(".group-{{i}}");
+            {% endfor %}            
+
+        </script>
 
     </body>
 </html>
