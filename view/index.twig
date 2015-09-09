@@ -8,41 +8,90 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="assets/js/main.js"></script>
+        <link rel="stylesheet" href="vendor/fortawesome/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body>
 
-        <div class="flex-container">
-            {% for square in squares %}
-                {% if (square.getPoolMembership() is null) %}
-                    <div class="table-square-{{square.getValue()}}"></div>
-                {% else %}
-                    <div class="table-square-{{square.getValue()}} group-{{square.getPoolMembership()}}"></div>
-                {% endif %}
-            {% endfor %}
-        </div>
-        
-        <div class="result">Počet kaluží: {{ poolCount }}</div>
-        <div class="result">Najväčšia kaluž: {{ biggestPool }} </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
 
-        <script>
+                    <p></p>
 
-            function highlightAllOnMouseover(className) {
-                $(className).mouseover(function () {
-                    $(className).toggleClass("table-square-1-hover");
-                    $(className).toggleClass("table-square-1");
-                }).mouseleave(function () {
-                    $(className).toggleClass("table-square-1");
-                    $(className).toggleClass("table-square-1-hover");
-                });
-            }
-            
-            {% for i in 0..poolCount %}
-                highlightAllOnMouseover(".group-{{i}}");
-            {% endfor %}            
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Assignment</h3>
+                        </div>
+                        <div class="panel-body">                        
+                            <b>Task:</b> The application input takes a random array, which contains 0 or 1. 
+                            The array represents a table, where 0 means, there's nothing on the table and 1
+                            means a coffee is spilled on the table. 
+                            <p></p>
+                            <b>Algorithm:</b> Write an algorithm, which will find the biggest pool on the table and which counts the number of pools on the table. The pool consists from a group of squares with a spilled coffee (1), which have a common edge, or a common apex.
+                            <p></p>
+                            <b>Solution:</b> <a href="https://github.com/durino13/coffee">Github repository</a>
+                        </div>
+                    </div>    
 
-        </script>
+                    <div class="row" style="margin-bottom: 30px;">
+                        <div class="col-lg-12">
+                            <p></p>
+                            <button id="btn1" onclick="reloadPage()" class="btn btn-primary btn-large"><i class="fa fa-coffee"></i> &nbsp; Pour coffee on the table</button>                    
+                        </div>
+                    </div>                    
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Coffee table analysis results</h3>
+                        </div>
+                        <div class="panel-body">                        
+                            <div class="alert alert-success" role="alert">Pool count: {{ poolCount }}</div>
+                            <div class="alert alert-success" role="alert">Biggest pool: {{ biggestPool }}</div>   
+                        </div>
+                    </div>             
+
+                </div>                
+                <div class="col-lg-7">
+
+                    <p></p>
+                    <div class="flex-container">
+                        {% for square in squares %}
+                            {% if (square.getPoolMembership() is null) %}
+                                <div class="table-square-{{square.getValue()}}"></div>
+                            {% else %}
+                                <div class="table-square-{{square.getValue()}} group-{{square.getPoolMembership()}}"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <script>
+
+                function highlightAllOnMouseover(className) {
+                    $(className).mouseover(function () {
+                        $(className).toggleClass("table-square-1-hover");
+                        $(className).toggleClass("table-square-1");
+                    }).mouseleave(function () {
+                        $(className).toggleClass("table-square-1");
+                        $(className).toggleClass("table-square-1-hover");
+                    });
+                }
+
+                {% for i in 0..poolCount %}
+                    highlightAllOnMouseover(".group-{{i}}");
+                {% endfor %}            
+                    
+                function reloadPage() {
+                    window.location.reload(true);
+                }
+
+            </script>
 
     </body>
 </html>
